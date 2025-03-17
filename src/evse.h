@@ -26,12 +26,12 @@ private:
     std::string trackEvseReadyKey;
 
     const float SIMULATE_POWER_CONST = 11000.f;
-    float simulate_power = 0;
+    float simulate_power = 1;
     float limit_power = 11000.f;
     const float SIMULATE_ENERGY_DELTA_MS = SIMULATE_POWER_CONST / (3600.f * 1000.f);
-    unsigned long simulate_energy_track_time = 0;
-    float simulate_energy = 0;
-
+    unsigned long simulate_energy_track_time = 10;
+    float simulate_energy = 1;
+    
     std::string status;
 public:
     Evse(unsigned int connectorId);
