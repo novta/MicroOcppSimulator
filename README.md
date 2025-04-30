@@ -1,12 +1,12 @@
-# <img src="https://github.com/matth-x/MicroOcpp/assets/63792403/1c49d1ad-7afc-48d3-a54e-9aef2d4886db" alt="Icon" height="24"> &nbsp; MicroOcppSimulator
+# <img src="https://github.com/novta/MicroOcpp/assets/63792403/1c49d1ad-7afc-48d3-a54e-9aef2d4886db" alt="Icon" height="24"> &nbsp; MicroOcppSimulator
 
-[![Build (Ubuntu)](https://github.com/matth-x/MicroOcppSimulator/workflows/Ubuntu/badge.svg)]((https://github.com/matth-x/MicroOcppSimulator/actions))
-[![Build (Docker)](https://github.com/matth-x/MicroOcppSimulator/workflows/Docker/badge.svg)]((https://github.com/matth-x/MicroOcppSimulator/actions))
-[![Build (WebAssembly)](https://github.com/matth-x/MicroOcppSimulator/workflows/WebAssembly/badge.svg)]((https://github.com/matth-x/MicroOcppSimulator/actions))
+[![Build (Ubuntu)](https://github.com/novta/MicroOcppSimulator/workflows/Ubuntu/badge.svg)]((https://github.com/novta/MicroOcppSimulator/actions))
+[![Build (Docker)](https://github.com/novta/MicroOcppSimulator/workflows/Docker/badge.svg)]((https://github.com/novta/MicroOcppSimulator/actions))
+[![Build (WebAssembly)](https://github.com/novta/MicroOcppSimulator/workflows/WebAssembly/badge.svg)]((https://github.com/novta/MicroOcppSimulator/actions))
 
-Tester / Demo App for the [MicroOCPP](https://github.com/matth-x/MicroOcpp) Client, running on native Ubuntu, WSL, WebAssembly or MSYS2. Online demo: [Try it](https://demo.micro-ocpp.com/)
+Tester / Demo App for the [MicroOCPP](https://github.com/novta/MicroOcpp) Client, running on native Ubuntu, WSL, WebAssembly or MSYS2. Online demo: [Try it](https://demo.micro-ocpp.com/)
 
-[![Screenshot](https://github.com/agruenb/arduino-ocpp-dashboard/blob/master/docs/img/status_page.png)](https://demo.micro-ocpp.com/)
+[![Screenshot](https://github.com/novta/micro-ocpp-dashboard/blob/master/docs/img/status_page.png)](https://demo.micro-ocpp.com/)
 
 The Simulator has two purposes:
 - As a development tool, it allows to run MicroOCPP directly on the host computer and simplifies the development (no flashing of the microcontroller required)
@@ -24,16 +24,17 @@ Ubuntu 20.04 and contains all necessary dependencies.
 Firstly, build the image:
 
 ```shell
-docker build -t matthx/microocppsimulator:latest .
+docker build -t novta/microocppsimulator:latest .
 ```
 
 Then run the image:
 
 ```shell
-docker run -p 8000:8000 matthx/microocppsimulator:latest
+docker run -p 8000:8000 novta/microocppsimulator:latest
 ```
 
 The Simulator should be up and running now on [localhost:8000](http://localhost:8000).
+In the case of running in Azure Virtual Machine localhost is not defined and the real IP address is to be used. Also webapp is to be updated. Follow Readme.md fle for instructions. The .env file is to be created and updated to point the local IP address instead of localhost.
 
 ## Installation (Ubuntu or WSL)
 
@@ -51,7 +52,7 @@ sudo apt install cmake libssl-dev build-essential
 Navigate to the preferred installation directory or just to the home folder. Clone the Simulator and all submodules:
 
 ```shell
-git clone --recurse-submodules https://github.com/matth-x/MicroOcppSimulator
+git clone --recurse-submodules https://github.com/novta/MicroOcppSimulator
 ```
 
 Navigate to the copy of the Simulator and build:
@@ -86,7 +87,7 @@ root directory.
 For this to work NodeJS, npm and git have to be installed on your machine. The called script automatically performs the
 following tasks:
 
-- pull the newest version of the the [arduino-ocpp-dashboard](https://github.com/agruenb/arduino-ocpp-dashboard)
+- pull the newest version of the the [micro-ocpp-dashboard](https://github.com/novta/micro-ocpp-dashboard)
 - check if you have added a *.env.production* file
 - install webapp dependencies
 - build the webapp
@@ -114,10 +115,10 @@ The compiler toolchain should emit the WebAssembly binary and a JavaScript wrapp
 ./build-webapp/install_webassembly.sh
 ```
 
-Now, the GUI can be developed or built as described in the [webapp repository](https://github.com/agruenb/arduino-ocpp-dashboard).
+Now, the GUI can be developed or built as described in the [webapp repository](https://github.com/novta/micro-ocpp-dashboard).
 
 After building the GUI, the emited files contain the full Simulator functionality. To run the Simualtor, start an HTTP file server in the dist folder and access it with your browser.
 
 ## License
 
-This project is licensed under the GPL as it uses the [Mongoose Embedded Networking Library](https://github.com/cesanta/mongoose). If you have a proprietary license of Mongoose, then the [MIT License](https://github.com/matth-x/MicroOcpp/blob/master/LICENSE) applies.
+This project is licensed under the GPL as it uses the [Mongoose Embedded Networking Library](https://github.com/novta/mongoose). If you have a proprietary license of Mongoose, then the [MIT License](https://github.com/novta/MicroOcpp/blob/master/LICENSE) applies.
